@@ -5,7 +5,7 @@ const users = [
   { name: 'Lux', active: false },
 ];
 
-const toggleUserState = (allUsers, userName, callback) => {
+const toggleUserState = (allUsers, userName) => {
   const updatedUsers = allUsers.map(user =>
     user.name === userName ? { ...user, active: !user.active } : user,
   );
@@ -16,6 +16,24 @@ const toggleUserState = (allUsers, userName, callback) => {
     });
     return promise;
 };
+
+// Второй вариант решения
+// const toggleUserState = (allUsers, userName) => {
+//   const updatedUsers = allUsers.map(user =>
+//     user.name === userName ? { ...user, active: !user.active } : user,
+//   );
+
+//   return Promise.resolve(updatedUsers);
+// };
+
+// Третий вариант решения
+// const toggleUserState = async(allUsers, userName) => {
+//   const updatedUsers = allUsers.map(user =>
+//     user.name === userName ? { ...user, active: !user.active } : user,
+//   );
+
+//   return updatedUsers;
+// };
 
 const logger = updatedUsers => console.table(updatedUsers);
 
